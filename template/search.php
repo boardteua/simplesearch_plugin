@@ -5,25 +5,27 @@
     data-element-count="<?= $elementCount ?>"
     data-element-view="<?= $view ?>">
     <div class="ss__search-box">
-        <input 
-            type="text"
-            v-model="searchText"  
-            @keyup.enter="search" 
-            placeholder="Enter your search query" 
-            class="ss__input">
-        <button 
-            @click="search" 
-            class="ss__button" aria-lalel=" <?= __('Search', 'ss'); ?>" >
-            <img alt="Search" width="16px" height="16px" src="<?= plugins_url('img/search.svg', __DIR__) ?>" />
-           </button>
+        <div class="ss__search-box-wrp">
+            <input 
+                type="text"
+                v-model="searchText"  
+                @keyup.enter="search" 
+                placeholder="Enter your search query" 
+                class="ss__input">
+            <button 
+                @click="search" 
+                class="ss__button" aria-label=" <?= __('Search', 'ss'); ?>" >
+                <img alt="Search" width="16px" height="16px" src="<?= plugins_url('img/search.svg', __DIR__) ?>" />
+            </button>
+            <button 
+            class="ss__grid-toogle" 
+            @click="toggleGrid">
+            <?= __('Toggle Grid', 'ss') ?></button>
+        </div>
         <div 
             v-if="errorMessage" 
             class="error-message"
         >{{ errorMessage }}</div>
-        <button 
-            class="ss__grid-toogle" 
-            @click="toggleGrid">
-            <?= __('Toggle Grid', 'ss') ?></button>
     </div>
     <div 
         class="ss__wrapper" 

@@ -6,7 +6,10 @@
     position: relative;
     z-index: 10;
     min-width: 300px;
-    padding-right: 40px!important;
+    min-height: 20px;
+    padding:10px 40px 10px 15px!important;
+    outline: none!important;
+    box-shadow: none!important;
 }
 
 .ss__button img{
@@ -28,10 +31,20 @@
 .ss__button:hover, .ss__button:focus{
     background: none;
 }
+
+.error-message{
+    padding-left: 15px;
+}
 /**/
 .ss__search-box {
     margin-bottom: 15px;
     position: relative;
+}
+.ss__search-box-wrp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .ss__item-wrp {
