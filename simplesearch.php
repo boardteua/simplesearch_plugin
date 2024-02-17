@@ -156,6 +156,7 @@ class simpleSearch
             'paged' => $data['page']
         ]);
 
+        // Weird pagination
         $res['info']['pages'] = $query->max_num_pages;
         $res['info']['total'] = $query->found_posts;
 
