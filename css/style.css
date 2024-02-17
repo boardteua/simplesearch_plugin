@@ -25,7 +25,6 @@
     position: relative;
     z-index: 11;
     left: -40px;
-    top:-2px;
 }
 
 .ss__button:hover, .ss__button:focus{
