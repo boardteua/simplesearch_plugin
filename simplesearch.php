@@ -85,8 +85,7 @@ class simpleSearch
                 'url' => site_url(),
                 'symbolError' => __('The entered value contains invalid characters.', 'ss'),
                 'noItems' => __('No results found.', 'ss'),
-                'emptyReq' => __('Add some search text.', 'ss'),
-                'appId' => self::$class
+                'emptyReq' => __('Add some search text.', 'ss')
             ]
         );
 
@@ -116,7 +115,6 @@ class simpleSearch
             $atts,
             'custom_search'
         );
-        self::$class = $atts['class'];
         $options = get_option(self::$pref . '_options');
 
         $elementCount = $atts['element-count'] ? $atts['element-count'] : $options['items_per_page'];
