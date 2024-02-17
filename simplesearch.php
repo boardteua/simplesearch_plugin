@@ -216,6 +216,7 @@ class simpleSearch
                         </div>
                         <?php
     }
+
     /**
      * Init options page
      */
@@ -307,6 +308,5 @@ add_action('plugins_loaded', function () {
 });
 
 // Init
+
 $simpleSearch = simpleSearch::get_instance();
-
-
