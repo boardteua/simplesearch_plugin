@@ -5,7 +5,6 @@ document.querySelectorAll(".ss_search").forEach((app) => {
    results: [],
    currentPage: 1,
    pages: 0,
-   totalPages: 1,
    searchText: "",
    count: null,
    isGridEnabled: false,
@@ -58,11 +57,8 @@ document.querySelectorAll(".ss_search").forEach((app) => {
        this.last = true;
       }
 
-      const totalCount = data.info.total;
-      const perPage = this.count;
       this.results.push(...data.items);
       this.currentPage++;
-      this.totalPages = Math.ceil(totalCount / perPage);
       this.pages = data.info.pages;
      });
    },
@@ -75,7 +71,6 @@ document.querySelectorAll(".ss_search").forEach((app) => {
     if (/^[a-zA-Z0-9а-яА-щА-ЩЬьЮюЯяЇїІіЄєҐґЯЁё\s]*$/.test(this.searchText)) {
      this.results = [];
      this.currentPage = 1;
-     this.totalPages = 1;
      this.fetchResults();
     } else {
      this.errorMessage = ss_obj.symbolError;
