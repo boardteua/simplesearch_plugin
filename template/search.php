@@ -39,7 +39,7 @@
         </div>
     </div>
         <button 
-            v-if="currentPage <= pages || errorMessage" 
+            v-if="currentPage <= pages && !errorMessage" 
             @click="loadMore">
             <?= __('Load More', 'ss'); ?></button>
     </div>  
