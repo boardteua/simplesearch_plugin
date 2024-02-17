@@ -289,7 +289,7 @@ class simpleSearch
     public function ss_options_sanitize($input): array
     {
         $output = array();
-        // Очищаємо значення перед збереженням
+        // Cleanup option before save
         foreach ($input as $key => $value) {
             $output[$key] = sanitize_text_field($value);
         }

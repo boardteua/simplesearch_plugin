@@ -48,13 +48,13 @@ document.querySelectorAll(".ss_search").forEach((app) => {
        this.errorMessage = ss_obj.noItems;
        this.results = [];
       } else {
-       // Скидання повідомлення про помилку
+       // Reset error messaage
        this.errorMessage = "";
        return response.json();
       }
      })
      .then((data) => {
-      // Оновлюємо дані
+      // Refresh data
       if (data.info.last) {
        this.last = true;
       }
@@ -72,10 +72,8 @@ document.querySelectorAll(".ss_search").forEach((app) => {
      this.errorMessage = ss_obj.emptyReq;
      return;
     }
-    // Перевірка на ін'єкції
+    // Check for bad symbols
     if (/^[a-zA-Z0-9а-яА-щА-ЩЬьЮюЯяЇїІіЄєҐґЯЁё\s]*$/.test(this.searchText)) {
-     // Скидуємо лічильник сторінок при новому пошуковому запиті
-
      this.results = [];
      this.currentPage = 1;
      this.totalPages = 1;
