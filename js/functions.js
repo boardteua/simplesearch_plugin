@@ -23,7 +23,6 @@ document.querySelectorAll(".ss_search").forEach((app) => {
    },
   },
   mounted() {
-   console.log(this.viewType);
    if ("grid" === this.viewType) {
     this.isGridEnabled = true;
    }
