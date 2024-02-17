@@ -1,0 +1,32 @@
+.ss__search-box {
+    margin-bottom: 15px;
+}
+
+.ss__item-wrp {
+    margin-bottom: 15px;
+}
+
+.ss__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.ss__wrapper.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.ss__wrapper.grid .ss__item {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.ss__grid-toogle{
+    float: right;
+}
