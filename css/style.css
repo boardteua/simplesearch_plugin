@@ -1,5 +1,36 @@
+
+.ss__input{
+    border: 2px solid #000!important;
+    border-radius: 40px!important;
+    background: none!important;
+    position: relative;
+    z-index: 10;
+    min-width: 300px;
+}
+
+.ss__button img{
+    width: 24px;
+    height: 24px;
+    position: relative;
+} 
+.ss__button{
+    border:none;
+    background: none;
+    padding: 0!important;
+    margin-left: 0!important;
+    position: relative;
+    z-index: 11;
+    left: -40px;
+    top:-2px;
+}
+
+.ss__button:hover, .ss__button:focus{
+    background: none;
+}
+/**/
 .ss__search-box {
     margin-bottom: 15px;
+    position: relative;
 }
 
 .ss__item-wrp {
@@ -29,9 +60,4 @@
 
 .ss__grid-toogle {
     float: right;
-}
-
-.ss__input{
-    border: 2px solid #000;
-    border-radius: 40px;
 }

@@ -11,7 +11,11 @@
             @keyup.enter="search" 
             placeholder="Enter your search query" 
             class="ss__input">
-        <button @click="search"><?= __('Search', 'ss'); ?></button>
+        <button 
+            @click="search" 
+            class="ss__button" aria-lalel=" <?= __('Search', 'ss'); ?>" >
+            <img alt="Search" width="16px" height="16px" src="<?= plugins_url('img/search.svg', __DIR__) ?>" />
+           </button>
         <div 
             v-if="errorMessage" 
             class="error-message"
