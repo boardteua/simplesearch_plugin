@@ -305,5 +305,4 @@ add_action('plugins_loaded', function () {
 });
 
 // Init
-
 $simpleSearch = simpleSearch::get_instance();
