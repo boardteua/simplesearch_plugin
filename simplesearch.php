@@ -39,7 +39,7 @@ class simpleSearch
         // Register assets
         add_action('wp_enqueue_scripts', [$this, 'frontAssets']);
 
-        //Add Rest api endpoint to return wat we have
+        // Add Rest api endpoint to return what we have
         add_action('rest_api_init', [$this, 'searchEndpoint']);
 
         // Register shortcode for search
