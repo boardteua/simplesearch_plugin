@@ -46,10 +46,10 @@ class simpleSearch
         add_shortcode('custom_search', [$this, 'ss_searchShortCode']);
 
         // Register options page
-        add_action('admin_menu', [$this, 'ss_options_page']);
+        add_action('admin_menu', [$this, 'ss_optionsPage']);
 
         // Options Init
-        add_action('admin_init', [$this, 'ss_options_init']);
+        add_action('admin_init', [$this, 'ss_optionsInit']);
 
     }
 
@@ -184,21 +184,21 @@ class simpleSearch
     /**
      * Seardh options page
      */
-    public function ss_options_page(): void
+    public function ss_optionsPage(): void
     {
         add_options_page(
             'SimpleSearch', // Page name
             'SimpleSearch', // Nav label
             'manage_options',  // User perms
             self::$pref . '-options',  // slug
-            [$this, 'ss_options_page_content'] // callback-func for content
+            [$this, 'ss_optionsPageContent'] // callback-func for content
         );
     }
 
     /**
      * Options page calback
      */
-    public function ss_options_page_content(): void
+    public function ss_optionsPageContent(): void
     {
         ?>
                         <div class="wrap">
@@ -217,23 +217,23 @@ class simpleSearch
     /**
      * Init options page
      */
-    public function ss_options_init(): void
+    public function ss_optionsInit(): void
     {
         // Lets register our options
-        register_setting(self::$pref . '_options_group', self::$pref . '_options', [$this, 'ss_options_sanitize']);
+        register_setting(self::$pref . '_options_group', self::$pref . '_options', [$this, 'ss_optionsSanitize']);
 
         // Section on setting page
         add_settings_section(
             self::$pref . '_options_section',
             '<hr />',
-            [$this, 'ss_options_section_callback'],
+            [$this, 'ss_optionsSectionCallback'],
             self::$pref . '-options'
         );
 
         add_settings_field(
             'grid_or_list',
             __('Grid or list', 'ss'),
-            [$this, 'ss_default_view_type_callback'],
+            [$this, 'ss_defaultViewTypeCallback'],
             self::$pref . '-options',
             self::$pref . '_options_section'
         );
@@ -241,7 +241,7 @@ class simpleSearch
         add_settings_field(
             'items_per_page',
             __('Item Per Page', 'ss'),
-            [$this, 'ss_items_per_page_callback'],
+            [$this, 'ss_itemsPerPageCallback'],
             self::$pref . '-options',
             self::$pref . '_options_section'
         );
@@ -250,7 +250,7 @@ class simpleSearch
     /**
      * Callback for section content.
      */
-    public function ss_options_section_callback(): void
+    public function ss_optionsSectionCallback(): void
     {
         echo '<p>Default settings for shortcode <code>[custom_search post-type="post" element-count="6" class="my__search" ]</code>
         </p>';
@@ -259,7 +259,7 @@ class simpleSearch
     /**
      * Grid or list selector callback
      */
-    public function ss_default_view_type_callback(): void
+    public function ss_defaultViewTypeCallback(): void
     {
         $options = get_option(self::$pref . '_options');
         $grid_or_list = $options['grid_or_list'] ?? '';
@@ -274,7 +274,7 @@ class simpleSearch
     /**
      * Grid or list selector callback
      */
-    public function ss_items_per_page_callback(): void
+    public function ss_itemsPerPageCallback(): void
     {
         $options = get_option(self::$pref . '_options');
         ?>
@@ -285,7 +285,7 @@ class simpleSearch
     /**
      * Simple sanitize
      *  */
-    public function ss_options_sanitize($input): array
+    public function ss_optionsSanitize($input): array
     {
         $output = array();
         // Cleanup option before save
