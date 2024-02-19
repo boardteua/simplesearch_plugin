@@ -37,13 +37,13 @@ class simpleSearch
     private function __construct()
     {
         // Register assets
-        add_action('wp_enqueue_scripts', [$this, 'frontAssets']);
+        add_action('wp_enqueue_scripts', [$this, 'ss_frontAssets']);
 
         // Add Rest api endpoint to return what we have
-        add_action('rest_api_init', [$this, 'searchEndpoint']);
+        add_action('rest_api_init', [$this, 'ss_searchEndPoint']);
 
         // Register shortcode for search
-        add_shortcode('custom_search', [$this, 'searchShortCode']);
+        add_shortcode('custom_search', [$this, 'ss_searchShortCode']);
 
         // Register options page
         add_action('admin_menu', [$this, 'ss_options_page']);
@@ -57,7 +57,7 @@ class simpleSearch
      * Load assets to site frontend
      */
 
-    public function frontAssets(): void
+    public function ss_frontAssets(): void
     {
         // vue2 from cdn
         wp_enqueue_script(
@@ -102,7 +102,7 @@ class simpleSearch
      * @param string|null $content
      * @return string
      */
-    public function searchShortCode($atts, $content = null): string
+    public function ss_searchShortCode($atts, $content = null): string
     {
         $label = __('Search', 'ss');
         $atts = shortcode_atts(
@@ -130,11 +130,11 @@ class simpleSearch
     /**
      * Register route for search
      */
-    public function searchEndpoint(): void
+    public function ss_searchEndPoint(): void
     {
         register_rest_route(self::$pref . '/v1', '/search', [
             'methods' => 'POST',
-            'callback' => [$this, 'searchCallback'],
+            'callback' => [$this, 'ss_searchCallback'],
             'permission_callback' => '__return_true'
         ]);
     }
@@ -142,7 +142,7 @@ class simpleSearch
     /**
      * Callback for search
      */
-    public function searchCallback($request): object
+    public function ss_searchCallback($request): object
     {
         $data = $request->get_json_params();
 
