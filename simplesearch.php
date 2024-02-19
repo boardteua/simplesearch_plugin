@@ -23,7 +23,7 @@ class simpleSearch
     private static $instance = null;
     public static $pref = 'ss';
     public static $class = 'ss';
-    public static function get_instance(): SimpleSearch
+    public static function getInstance(): SimpleSearch
     {
         if (null == self::$instance) {
             self::$instance = new self();
@@ -305,4 +305,4 @@ add_action('plugins_loaded', function () {
 });
 
 // Init
-$simpleSearch = simpleSearch::get_instance();
+$simpleSearch = simpleSearch::getInstance();
